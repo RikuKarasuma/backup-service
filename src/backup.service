@@ -1,0 +1,12 @@
+[Unit]
+Description=Backup Service
+
+[Service]
+Type=oneshot
+User=garak
+Group=garak
+WorkingDirectory=/home/garak/backup-service
+ExecStart=/home/garak/backup-service/backup.sh <SOURCE> <TARGET> <EXTRA_RSYNC_COMMANDS>
+
+[Install]
+WantedBy=multi-user.target
