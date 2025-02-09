@@ -15,7 +15,7 @@ backup_directory() {
 
 	echo "Syncing input $source to destination $target"
 	rsync $extra_params $source/ $target/
-  echo "Syncing complete"
+	echo "Syncing complete"
 }
 
 backup_directory $source $target $extra_params

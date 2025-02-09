@@ -1,0 +1,10 @@
+[Unit]
+Description=Backup Service
+
+[Service]
+Type=oneshot
+User=root
+ExecStart=/home/garak/backup-service/backup.sh /NAS/storage/ /NAS/backup/ "-aAXHv -x --delete"
+
+[Install]
+WantedBy=multi-user.target
