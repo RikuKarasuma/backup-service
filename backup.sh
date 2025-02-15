@@ -5,7 +5,9 @@ set -eo
 
 source="$1"
 target="$2"
-shift 2
+
+
+
 
 backup_directory() {
 
@@ -20,4 +22,10 @@ backup_directory() {
 	echo "Syncing complete"
 }
 
-backup_directory "$source" "$target" "$@"
+
+if findmnt -rn -o TARGET "$source" && findmnt -rn -o TARGET "$target" ; then
+	shift 2
+	backup_directory "$source" "$target" "$@"
+else
+	echo "/NAS "$source" or "$target" missing, skipping backup process.."
+fi

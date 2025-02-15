@@ -1,5 +1,8 @@
 [Unit]
 Description=NAS Backup Service
+After=local-fs.target multi-user.target
+ConditionPathExists=/dev/disk/by-uuid/c453eb44-1eb8-44e1-883b-4a4b399a6494
+ConditionPathExists=/dev/disk/by-uuid/964161c8-75b8-4361-bd24-d520540eb835
 
 [Service]
 Type=oneshot
